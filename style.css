@@ -11,3 +11,8 @@ margin: 0px;
 background-color: crimson;
 color: white;
 }
+
+.canvas{
+    border: 2px solid maroon;
+    box-shadow: 5px 5px 5px black;
+}
