@@ -1,4 +1,5 @@
 status =  "";
+object = [];
 
 function preload(){
     img = loadImage("bottle.jpg");
@@ -23,5 +24,22 @@ function gotResults(error , result){
     }
     else{
         console.log(result);
+        object = result;
+    }
+}
+
+function draw(){
+    if(status != ""){
+       for(i = 0;i < object.length;i++){
+          fill(red);
+          percent = floor(object[i].confidence*100);
+          label = object[i].label;
+          x = object[i].x;
+          y = object[i].y;
+          text(label + " " + percent + "%",x + 15,y + 15);
+          noFill();
+          stroke(red);
+          rect(object[i].x, object[i].y, object[i].width, object[i].height);
+       }
     }
 }
